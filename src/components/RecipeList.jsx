@@ -8,12 +8,6 @@ const RecipeList = ({ recipes }) => {
         return (
           <div key={i} className="recipe__card">
             <img src={image} alt={name} />
-            {/* <div className="recipe__details">
-              <h4>{name}</h4>
-              <p className="recipe__type">{mealType}</p>
-              <p>{dietLabels}</p>
-              <button>Recipe &rarr;</button>
-            </div> */}
             {dietLabels[0] && (
               <div className="recipe__labels">
                 {dietLabels.map(label => (

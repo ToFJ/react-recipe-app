@@ -5,7 +5,7 @@ import RecipeList from "./components/RecipeList";
 import SearchField from "./components/SearchField";
 
 function App() {
-  const [query, setQuery] = useState("coffee");
+  const [query, setQuery] = useState("noodle chicken");
   const [isLoading, setIsLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
 
