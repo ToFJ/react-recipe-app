@@ -1,13 +1,192 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+p {
+  text-transform: capitalize;
+}
+
+/* GLOBAL RESET END */
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 10rem;
+}
+
+.loading span:nth-child(1) {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.loading span:nth-child(2) {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation-delay: 0.1s;
+}
+.loading span:nth-child(3) {
+  animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  animation-delay: 0.2s;
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.recipe-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 2rem 2rem;
+}
+
+.recipe__card {
+  margin: 1rem 1rem;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+/* 
+.recipe__details {
+  margin: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.recipe__type {
+  border: 1px solid red;
+  top: 0;
+  right: 0;
+}
+
+.recipe__details h4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+} */
+
+.recipe__labels {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  padding: 0.25rem 0.5rem;
+  color: white;
+}
+
+.recipe__labels p {
+  background-color: rgba(122, 117, 117, 0.9);
+  border-radius: 1rem;
+  width: auto;
+  padding: 0.2rem 0.5rem;
+  margin-top: 0.2rem;
+}
+
+.recipe__card-info {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  right: 0.5rem;
+  padding: 0 1rem;
+  padding-top: 2rem;
+  border-radius: 0.5rem;
+  background-color: rgba(122, 117, 117, 0.5);
+  color: white;
+  backdrop-filter: blur(5px);
+  cursor: pointer;
+}
+
+.recipe__card-info h4 {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+
+.recipe__card-info button {
+  float: right;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: all ease-in-out 0.2s;
+}
+
+.recipe__card-info:hover button {
+  transform: scale(1.5);
+}
+
+@media (max-width: 335px) {
+  .recipe__labels p {
+    font-size: 0.75rem;
+  }
 }
