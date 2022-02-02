@@ -4,7 +4,6 @@ const RecipeList = ({ recipes }) => {
       {recipes.hits?.map((recipe, i) => {
         const { image, label: name, mealType, dietLabels, cuisineType, healthLabels } = recipe.recipe;
 
-        console.log(recipe.recipe);
         return (
           <div key={i} className="recipe__card">
             <img src={image} alt={name} />
