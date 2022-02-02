@@ -6,6 +6,7 @@ const SearchField = ({ setQuery }) => {
   const handleSubmit = e => {
     e.preventDefault();
     setQuery(searchRef.current.value);
+    e.target.reset();
   };
 
   return (
