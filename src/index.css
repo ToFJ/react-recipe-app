@@ -70,6 +70,10 @@ p {
   text-transform: capitalize;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* GLOBAL RESET END */
 
 .loading {
@@ -192,4 +196,63 @@ p {
   .search input {
     width: 50%;
   }
+}
+
+.recipe-modal {
+  position: absolute;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 50%;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+.recipe-modal img {
+  margin: 1rem;
+}
+
+.recipe-modal__hero {
+  display: flex;
+}
+
+.recipe-modal__labels-items {
+  background-color: rgba(122, 117, 117, 0.9);
+  border-radius: 1rem;
+  width: auto;
+  color: white;
+  margin: 0.2rem 0.25rem;
+  /* display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 0.25rem;
+  width: max-content; */
+  float: left;
+  padding: 0 0.5rem;
+}
+
+.recipe-moda__ing {
+  margin: 1rem 1rem;
+}
+
+.recipe-modal__button {
+  position: absolute;
+  border-radius: 100%;
+  color: red;
+  background: none;
+  top: 2%;
+  right: 1%;
+  border: 1px solid red;
+  cursor: pointer;
+  padding: 0.25rem 0.7rem;
+}
+.recipe-modal__button:hover {
+  background-color: red;
+  color: white;
 }

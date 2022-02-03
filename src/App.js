@@ -8,7 +8,6 @@ function App() {
   const [query, setQuery] = useState("noodle chicken");
   const [isLoading, setIsLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
-  const [isModal, setIsModal] = useState(false);
 
   const fetchData = async query => {
     try {
