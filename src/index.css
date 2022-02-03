@@ -320,3 +320,17 @@ html {
 .recipe-moda__ing p {
   padding-bottom: 0.5rem;
 }
+
+.new-results-button {
+  background: rgb(160, 35, 72);
+  color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 0 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}

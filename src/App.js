@@ -31,7 +31,7 @@ function App() {
   return (
     <>
       <SearchField setQuery={setQuery} />
-      <RecipeList recipes={recipes} />
+      <RecipeList recipes={recipes} setRecipes={setRecipes} />
     </>
   );
 }

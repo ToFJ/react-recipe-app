@@ -17,12 +17,11 @@ const RecipeDetails = ({ recipes, index, setIsModal }) => {
               })}
             </p>
           </div>
-          <div className="recipe-moda__ing">
-            {recipes?.hits[index].recipe.ingredientLines.map((type, i) => {
-              console.log(type);
-              return <p key={i}>{type}</p>;
-            })}
-          </div>
+        </div>
+        <div className="recipe-moda__ing">
+          {recipes?.hits[index].recipe.ingredientLines.map((type, i) => {
+            return <p key={i}>{type}</p>;
+          })}
         </div>
         <button onClick={() => setIsModal(false)} className="recipe-modal__button" type="button">
           X

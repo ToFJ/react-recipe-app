@@ -1,17 +1,29 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import RecipeDetails from "./RecipeDetails";
 
-const RecipeList = ({ recipes }) => {
+const RecipeList = ({ recipes, setRecipes }) => {
   const [isModal, setIsModal] = useState(false);
   const [index, setIndex] = useState(0);
   const scrollToRef = useRef(null);
+
   const openModal = i => {
     setIndex(i);
     setIsModal(true);
     scrollToRef.current.scrollIntoView();
   };
 
+  const fetchNewSite = async link => {
+    const resp = await fetch(link);
+    const data = await resp.json();
+    setRecipes(data);
+  };
+
+  const handleNextSite = () => {
+    fetchNewSite(recipes._links.next.href);
+    scrollToRef.current.scrollIntoView();
+  };
+  console.log(recipes);
   if (recipes.hits.length <= 0) {
     return (
       <h4 className="error">
@@ -44,6 +56,9 @@ const RecipeList = ({ recipes }) => {
           );
         })}
         {isModal ? <RecipeDetails index={index} recipes={recipes} setIsModal={setIsModal} /> : ""}
+        <button type="button" className="new-results-button" onClick={handleNextSite}>
+          Found nothing to your liking? Try Again &rarr;
+        </button>
       </div>
     </>
   );
