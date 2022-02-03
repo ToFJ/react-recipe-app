@@ -198,6 +198,15 @@ html {
   }
 }
 
+/* .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(128, 128, 128, 0.8);
+} */
+
 .recipe-modal {
   position: absolute;
   background-color: white;
@@ -222,6 +231,10 @@ html {
   display: flex;
 }
 
+.recipe-modal__labels h1 {
+  margin-left: 0.5rem;
+}
+
 .recipe-modal__labels-items {
   background-color: rgba(122, 117, 117, 0.9);
   border-radius: 1rem;
@@ -239,10 +252,10 @@ html {
 .recipe-modal__button {
   position: absolute;
   border-radius: 100%;
-  color: red;
-  background: none;
-  top: 2%;
-  right: 1%;
+  color: white;
+  background: red;
+  top: 0;
+  left: 0;
   border: 1px solid red;
   cursor: pointer;
   padding: 0.25rem 0.7rem;
@@ -257,4 +270,49 @@ html {
   display: flex;
   justify-content: center;
   color: red;
+}
+
+@media (max-width: 1919px) {
+  .recipe-modal__hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .recipe-modal__labels h1 {
+    display: flex;
+    justify-content: center;
+  }
+  .recipe-modal__hero img {
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 620px) {
+  .recipe-modal {
+    margin-top: 19rem;
+    width: 95%;
+  }
+  .psa {
+    margin-bottom: 14rem;
+  }
+}
+
+@media (max-width: 370px) {
+  .recipe__card {
+    margin: 0;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 780px) {
+  .recipe-modal {
+    margin-top: 13rem;
+    width: 95%;
+  }
+  .recipe-modal__hero img {
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
 }

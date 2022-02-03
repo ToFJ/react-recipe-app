@@ -1,14 +1,15 @@
 import { useState, useRef } from "react";
 
+import RecipeDetails from "./RecipeDetails";
+
 const RecipeList = ({ recipes }) => {
   const [isModal, setIsModal] = useState(false);
   const [index, setIndex] = useState(0);
-  const modalScrollRef = useRef(null);
-
+  const scrollToRef = useRef(null);
   const openModal = i => {
     setIndex(i);
     setIsModal(true);
-    modalScrollRef.current.scrollIntoView();
+    scrollToRef.current.scrollIntoView();
   };
 
   if (recipes.hits.length <= 0) {
@@ -22,7 +23,7 @@ const RecipeList = ({ recipes }) => {
 
   return (
     <>
-      <div ref={modalScrollRef} className="recipe-container">
+      <div ref={scrollToRef} className="recipe-container">
         {recipes.hits?.map((recipe, i) => {
           const { image, label: name, mealType, dietLabels, cuisineType, healthLabels } = recipe.recipe;
           return (
@@ -42,42 +43,7 @@ const RecipeList = ({ recipes }) => {
             </div>
           );
         })}
-        {isModal ? (
-          <div className="recipe-modal">
-            <div className="recipe-modal__hero">
-              <img src={recipes?.hits[index].recipe.image} alt="" />
-              <div className="recipe-modal__labels">
-                <h1>{recipes?.hits[index].recipe.label}</h1>
-                <p>
-                  {recipes?.hits[index].recipe.healthLabels.map((type, i) => {
-                    return (
-                      <span className="recipe-modal__labels-items" key={i}>
-                        {" "}
-                        {type}
-                      </span>
-                    );
-                  })}
-                </p>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <div className="recipe-moda__ing">
-                  {recipes?.hits[index].recipe.ingredientLines.map((type, i) => {
-                    console.log(type);
-                    return <p key={i}>{type}</p>;
-                  })}
-                </div>
-              </div>
-            </div>
-            <button onClick={() => setIsModal(false)} className="recipe-modal__button" type="button">
-              X
-            </button>
-          </div>
-        ) : (
-          ""
-        )}
+        {isModal ? <RecipeDetails index={index} recipes={recipes} setIsModal={setIsModal} /> : ""}
       </div>
     </>
   );
