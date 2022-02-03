@@ -316,3 +316,7 @@ html {
     overflow: hidden;
   }
 }
+
+.recipe-moda__ing p {
+  padding-bottom: 0.5rem;
+}
