@@ -228,11 +228,6 @@ html {
   width: auto;
   color: white;
   margin: 0.2rem 0.25rem;
-  /* display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  margin-bottom: 0.25rem;
-  width: max-content; */
   float: left;
   padding: 0 0.5rem;
 }
@@ -252,7 +247,14 @@ html {
   cursor: pointer;
   padding: 0.25rem 0.7rem;
 }
+
 .recipe-modal__button:hover {
   background-color: red;
   color: white;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  color: red;
 }

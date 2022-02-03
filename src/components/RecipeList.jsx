@@ -11,14 +11,20 @@ const RecipeList = ({ recipes }) => {
     modalScrollRef.current.scrollIntoView();
   };
 
-  // console.log(index);
-  console.log(recipes?.hits[0].recipe);
+  if (recipes.hits.length <= 0) {
+    return (
+      <h4 className="error">
+        Seems like nothing was found with your specifc ingredients, try other ingredients or reduce the amount of
+        ingredients.
+      </h4>
+    );
+  }
+
   return (
     <>
       <div ref={modalScrollRef} className="recipe-container">
         {recipes.hits?.map((recipe, i) => {
           const { image, label: name, mealType, dietLabels, cuisineType, healthLabels } = recipe.recipe;
-
           return (
             <div key={i} className="recipe__card" onClick={() => openModal(i)}>
               <img src={image} alt={name} />
@@ -42,10 +48,8 @@ const RecipeList = ({ recipes }) => {
               <img src={recipes?.hits[index].recipe.image} alt="" />
               <div className="recipe-modal__labels">
                 <h1>{recipes?.hits[index].recipe.label}</h1>
-
                 <p>
                   {recipes?.hits[index].recipe.healthLabels.map((type, i) => {
-                    console.log(type);
                     return (
                       <span className="recipe-modal__labels-items" key={i}>
                         {" "}
