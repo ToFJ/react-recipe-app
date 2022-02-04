@@ -30,8 +30,6 @@ const RecipeList = ({ recipes, setRecipes }) => {
       fetchNewSite(newRecipes[newRecipesCounter]._links.next.href);
     }
     setNewRecipesCounter(newRecipesCounter + 1);
-
-    // scrollToRef.current.scrollIntoView();
   };
 
   if (recipes.hits.length <= 0) {
@@ -42,6 +40,7 @@ const RecipeList = ({ recipes, setRecipes }) => {
       </h4>
     );
   }
+
   return (
     <>
       <div ref={scrollToRef} className="recipe-container">
@@ -64,8 +63,8 @@ const RecipeList = ({ recipes, setRecipes }) => {
             </div>
           );
         })}
-        {newRecipes.map((recipe, i) => {
-          const result = recipe.hits.map(recipe => {
+        {newRecipes.map(recipe => {
+          const result = recipe.hits.map((recipe, i) => {
             const { image, label: name, mealType, dietLabels, cuisineType, healthLabels } = recipe.recipe;
             return (
               <div key={i} className="recipe__card" onClick={() => openModal(i)}>
