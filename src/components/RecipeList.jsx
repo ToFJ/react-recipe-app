@@ -12,7 +12,7 @@ const RecipeList = ({ recipes, setRecipes }) => {
   const openModal = i => {
     setIndex(i);
     setIsModal(true);
-    // scrollToRef.current.scrollIntoView();
+    scrollToRef.current.scrollIntoView();
   };
 
   const fetchNewSite = async link => {
