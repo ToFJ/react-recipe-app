@@ -291,6 +291,7 @@ html {
 
 @media (max-width: 620px) {
   .recipe-modal {
+    position: absolute;
     margin-top: 22rem;
     width: 95%;
   }
