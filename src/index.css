@@ -208,7 +208,7 @@ html {
 } */
 
 .recipe-modal {
-  position: absolute;
+  position: fixed;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 1rem;
@@ -324,10 +324,17 @@ html {
 .new-results-button {
   background: rgb(99, 95, 95);
   color: white;
-  border: 1px solid black;
+  border: 1px solid white;
   border-radius: 20px;
-  padding: 0 1rem;
+  padding: 0 0.5rem;
   cursor: pointer;
   font-size: 1.5rem;
   margin-top: 1rem;
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0.1rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: max-content;
 }
